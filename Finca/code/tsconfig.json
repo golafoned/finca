@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"target": "ES2016", // Або новіша версія ES, яку підтримує ваша версія Node.js
+		"module": "CommonJS", // Ключовий параметр для сумісності з ts-node за замовчуванням
+		"outDir": "./dist", // Папка для компільованих JS файлів (опціонально)
+		"rootDir": "./src", // Коренева папка з вашим TS кодом
+		"strict": true,
+		"esModuleInterop": true, // Дозволяє імпортувати CommonJS модулі як ES модулі
+		"skipLibCheck": true, // Пропускає перевірку типів у файлах декларацій (.d.ts)
+		"forceConsistentCasingInFileNames": true, // Забезпечує однаковість регістру імен файлів
+		"resolveJsonModule": true, // Дозволяє імпортувати JSON файли
+		"moduleResolution": "node" // Використовує стандартний механізм розпізнавання модулів Node.js
+	},
+	"include": ["src/**/*"], // Включає всі файли в папці src
+	"exclude": ["node_modules", "**/*.spec.ts"] // Виключає непотрібні папки/файли
+}

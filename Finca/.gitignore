@@ -1,0 +1,48 @@
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# dependencies
+node_modules/
+
+# Expo / React Native Frontend (Finca/)
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+app-example/
+
+# Backend (Finca/code/)
+code/dist/
+code/node_modules/
+code/.env # Ignore backend environment variables
+
+# Native build artifacts
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+android/app/build/
+ios/build/
+
+# Metro bundler
+.metro-health-check*
+
+# Debug logs
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS specific
+.DS_Store
+*.pem
+
+# Local environment files (general)
+.env*.local
+
+# TypeScript build info
+*.tsbuildinfo
+
+# VSCode specific
+.vscode/
