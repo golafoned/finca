@@ -3,19 +3,13 @@
 # dependencies
 node_modules/
 
-# Expo / React Native Frontend (Finca/)
+# Expo
 .expo/
 dist/
 web-build/
 expo-env.d.ts
-app-example/
 
-# Backend (Finca/code/)
-code/dist/
-code/node_modules/
-code/.env # Ignore backend environment variables
-
-# Native build artifacts
+# Native
 .kotlin/
 *.orig.*
 *.jks
@@ -23,26 +17,23 @@ code/.env # Ignore backend environment variables
 *.p12
 *.key
 *.mobileprovision
-android/app/build/
-ios/build/
 
-# Metro bundler
+# Metro
 .metro-health-check*
 
-# Debug logs
+# debug
 npm-debug.*
 yarn-debug.*
 yarn-error.*
 
-# macOS specific
+# macOS
 .DS_Store
 *.pem
 
-# Local environment files (general)
+# local env files
 .env*.local
 
-# TypeScript build info
+# typescript
 *.tsbuildinfo
 
-# VSCode specific
-.vscode/
+app-example

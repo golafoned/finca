@@ -1,5 +1,6 @@
 import { ThemedText } from '@/components/ThemedText'
 import { ThemedView } from '@/components/ThemedView'
+import { API_PORT, YOUR_COMPUTER_IP } from '@/constants/apiConfig'
 import { useAuth } from '@/context/AuthContext' // Import useAuth
 import { Link, useRouter } from 'expo-router'
 import React, { useState } from 'react'
@@ -15,11 +16,11 @@ import {
 // --- Define API URL ---
 // Reuse the same logic as in register.tsx
 // --- !!! ВАЖЛИВО: ЗАМІНІТЬ ЦЕ НА ВАШУ ЛОКАЛЬНУ IP-АДРЕСУ !!! ---
-const YOUR_COMPUTER_IP = '172.16.198.76' // <--- ПЕРЕВІРТЕ/ЗАМІНІТЬ ЦЕ ЗНАЧЕННЯ!
+// const YOUR_COMPUTER_IP = '192.168.0.101' // <--- ПЕРЕВІРТЕ/ЗАМІНІТЬ ЦЕ ЗНАЧЕННЯ!
 // ------------------------------------------------------------------
 
 const getApiUrl = () => {
-	const port = 3001 // Порт вашого бекенд сервера
+	const port = API_PORT // Порт вашого бекенд сервера
 
 	if (Platform.OS === 'web') {
 		return '/api'
@@ -66,9 +67,14 @@ export default function LoginScreen() {
 			console.log(`Calling login API at ${API_URL}/auth/login...`)
 			const loginResponse = await callLoginApi(email, password)
 
-			if (loginResponse && loginResponse.token) {
-				console.log('Login API successful, received token.')
-				await signIn(loginResponse.token) // Update auth state using context with the received JWT token
+			if (
+				loginResponse &&
+				loginResponse.token &&
+				loginResponse.user &&
+				loginResponse.user.user_id // Changed from loginResponse.user.id
+			) {
+				console.log('Login API successful, received token and user ID.')
+				await signIn(loginResponse.token, loginResponse.user.user_id) // Changed from loginResponse.user.id
 				// Navigation should happen automatically via the effect in _layout.tsx
 				// You might not need router.replace here if the context handles it.
 			} else {

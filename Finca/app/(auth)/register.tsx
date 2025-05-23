@@ -1,5 +1,6 @@
 import { ThemedText } from '@/components/ThemedText'
 import { ThemedView } from '@/components/ThemedView'
+import { API_PORT, YOUR_COMPUTER_IP } from '@/constants/apiConfig'
 import { Link, useRouter } from 'expo-router'
 import React, { useState } from 'react'
 import {
@@ -16,11 +17,8 @@ import {
 // --- !!! ВАЖЛИВО: ЗАМІНІТЬ ЦЕ НА ВАШУ ЛОКАЛЬНУ IP-АДРЕСУ !!! ---
 // Знайдіть IP-адресу вашого комп'ютера (ipconfig/ifconfig)
 // Переконайтеся, що ваш iPhone та комп'ютер знаходяться в одній Wi-Fi мережі.
-const YOUR_COMPUTER_IP = '172.16.198.76' // <--- ЗАМІНІТЬ ЦЕ ЗНАЧЕННЯ!
-// ------------------------------------------------------------------
-
 const getApiUrl = () => {
-	const port = 3001 // Порт вашого бекенд сервера
+	const port = API_PORT // Порт вашого бекенд сервера
 
 	if (Platform.OS === 'web') {
 		// Для веб-версії відносний шлях або проксі
